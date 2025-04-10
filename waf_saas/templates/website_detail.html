@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Website Detail{% endblock %}
+{% block content %}
+<h2>Website: {{ website.domain }}</h2>
+
+<p><strong>WAF Status:</strong> {{ 'Enabled' if website.waf_enabled else 'Disabled' }}</p>
+
+<hr>
+<h4>WAF Configuration (Demo View)</h4>
+<ul>
+    <li>✅ SQL Injection Protection</li>
+    <li>✅ XSS Protection</li>
+    <li>✅ Bot Filtering</li>
+    <li>✅ Rate Limiting</li>
+</ul>
+
+
+<a href="{{ url_for('dashboard') }}" class="btn btn-secondary mt-3">← Back to Dashboard</a>
+{% endblock %}

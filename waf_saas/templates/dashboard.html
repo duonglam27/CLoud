@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>Your Websites</h2>
+<a href="{{ url_for('add_website') }}" class="btn btn-primary mb-3">+ Add New Website</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Domain</th>
+            <th>WAF Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for site in websites %}
+        <tr>
+            <td>{{ site.domain }}</td>
+            <td>{{ 'Enabled' if site.waf_enabled else 'Disabled' }}</td>
+            <td>
+                <a href="{{ url_for('website_detail', website_id=site.id) }}" class="btn btn-sm btn-info">Details</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="3">No websites added yet.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

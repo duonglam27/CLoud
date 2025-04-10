@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Add Website to WAF Protection</h2>
+    <form method="POST">
+        <div>
+            <label for="domain">Domain:</label>
+            <input type="text" name="domain" id="domain" placeholder="e.g. www.khachhang.com" required>
+        </div>
+        <div>
+            <label for="origin_ip">Origin Server IP:</label>
+            <input type="text" name="origin_ip" id="origin_ip" placeholder="e.g. 123.123.123.123" required>
+        </div>
+        <div>
+            <button type="submit">Add Website</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
